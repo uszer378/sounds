@@ -273,10 +273,14 @@
                 const res = await fetch(apiUrl);
                 if (!res.ok) throw new Error("GitHub path error");
                 const files = await res.json();
-                const mp3s = files.filter(f => f.name.toLowerCase().endsWith('.mp3'));
+                
+                // Filter for mp3s and REVERSE to show latest (assuming naming or upload order)
+                const mp3s = files
+                    .filter(f => f.name.toLowerCase().endsWith('.mp3'))
+                    .reverse();
 
                 loader.style.display = 'none';
-                status.innerText = `${mp3s.length} sounds loaded from GitHub`;
+                status.innerText = `${mp3s.length} sounds loaded (Latest First)`;
 
                 mp3s.forEach(file => {
                     const card = document.createElement('div');
