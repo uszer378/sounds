@@ -3,4 +3,4 @@ like plz oscar is tuff
 
 make sure the file is named a mp3
 
-do not put in the sounds folder
+put mp3 files in the sounds folder
